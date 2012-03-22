@@ -283,8 +283,8 @@
                 NSLog(@"show scrollview 2");
                 UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: ) ];
                 scrollview2 = [GlobalData sharedGlobalData].currentScrollView;
-                scrollview2.frame = scrollviewRect1;
-                scrollview2.tag = 1;
+                scrollview2.frame = scrollviewRect2;
+                scrollview2.tag = 2;
                 [scrollview2 addGestureRecognizer:singleTap]; 
                 scrollview2.delegate = self;
                 scrollview2.maximumZoomScale = [GlobalData sharedGlobalData].currentScrollView.maximumZoomScale;
@@ -511,6 +511,7 @@
     
 }
 - (UIView*)viewForZoomingInScrollView:(UIScrollView *)aScrollView {
+    NSLog(@"%d",aScrollView.tag);
     switch (aScrollView.tag) {
         case 1:
             return photo1View;//[[scrollview1 subviews] objectAtIndex:0];//
