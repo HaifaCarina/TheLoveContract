@@ -12,11 +12,15 @@
 @interface GlobalData : NSObject {
     UIImage *currentPhoto;
     UIScrollView *currentScrollView;
+    int currentPhotoTag;
+    int fromEffectsTag;
     
 }
 
 @property (nonatomic, retain) UIImage *currentPhoto;
 @property (nonatomic, retain) UIScrollView *currentScrollView;
+@property (nonatomic) int currentPhotoTag;
+@property (nonatomic) int fromEffectsTag;
 + (GlobalData*)sharedGlobalData;
 
 @end

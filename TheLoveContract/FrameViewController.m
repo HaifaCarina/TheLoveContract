@@ -232,34 +232,72 @@
     
 }
 
+
 #pragma mark -
 #pragma mark LifeCycle
 
 -(void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-    scrollview1.layer.borderWidth = 0;
-    scrollview1.frame = scrollviewRect1;
-    [self.view addSubview:scrollview1];
+    NSLog(@"viewwillappear %d",currentPhotoTag);
     
-    scrollview2.layer.borderWidth = 0;
-    scrollview2.frame = scrollviewRect2;
-    [self.view addSubview:scrollview2];
-    
-	//NSLog(@"FrameViewController viewWillAppear %d", currentPhotoTag);
-    /*
-    if ([GlobalData sharedGlobalData].currentScrollView != nil) {
-        NSLog(@"%@",[[[GlobalData sharedGlobalData].currentScrollView subviews] objectAtIndex:0]);
-    }
-    */
-    
-    /*
-    if (currentPhotoTag == 1) {
+    //[self.view addSubview:[GlobalData sharedGlobalData].currentScrollView];
+    /*if (currentPhotoTag == 1) {
+        NSLog(@"show scrollview 1");
         scrollview1 = [GlobalData sharedGlobalData].currentScrollView;
+        scrollview1.frame = scrollviewRect1;
+        scrollview1.tag = 1;
+     
+        
+        [self.view addSubview:scrollview1];
+        
+        
     } else if (currentPhotoTag == 2){
+        NSLog(@"show scrollview 2");
         scrollview2 = [GlobalData sharedGlobalData].currentScrollView;
+        scrollview2.frame = scrollviewRect2;
+        scrollview2.tag = 2;
+        [self.view addSubview:scrollview2];
     }
     */
+    
+    if ([GlobalData sharedGlobalData].fromEffectsTag == 1) {
+        switch (currentPhotoTag) {
+            case 1: {
+                NSLog(@"show scrollview 1");
+                
+                UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: ) ];
+                scrollview1 = [GlobalData sharedGlobalData].currentScrollView;
+                scrollview1.frame = scrollviewRect1;
+                scrollview1.tag = 1;
+                [scrollview1 addGestureRecognizer:singleTap]; 
+                scrollview1.delegate = self;
+                scrollview1.maximumZoomScale = [GlobalData sharedGlobalData].currentScrollView.maximumZoomScale;
+                scrollview1.minimumZoomScale = [GlobalData sharedGlobalData].currentScrollView.minimumZoomScale;
+                [self.view addSubview:scrollview1];
+                [singleTap release];
+                
+                break;
+            }  
+            case 2:
+                NSLog(@"show scrollview 2");
+                UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: ) ];
+                scrollview2 = [GlobalData sharedGlobalData].currentScrollView;
+                scrollview2.frame = scrollviewRect1;
+                scrollview2.tag = 1;
+                [scrollview2 addGestureRecognizer:singleTap]; 
+                scrollview2.delegate = self;
+                scrollview2.maximumZoomScale = [GlobalData sharedGlobalData].currentScrollView.maximumZoomScale;
+                scrollview2.minimumZoomScale = [GlobalData sharedGlobalData].currentScrollView.minimumZoomScale;
+                [self.view addSubview:scrollview2];
+                [singleTap release];
+                
+                break;
+        }
+        [GlobalData sharedGlobalData].fromEffectsTag = 0;
+    }
+    
+    
 }
 
 - (id) initWithTag:(int)tagNumber {
@@ -393,7 +431,7 @@
             photo1 = img;
             photo1View.image = img;
             
-            NSLog(@"%@",[[scrollview1 subviews] objectAtIndex:0]);
+            //NSLog(@"%@",[[scrollview1 subviews] objectAtIndex:0]);
             
             /*scrollview1.transform = CGAffineTransformIdentity;
             scrollview1.contentOffset = CGPointZero;
@@ -425,104 +463,46 @@
 {
    
     NSLog(@"%d",modalView.tag);
-    switch (modalView.tag) {
-        case 1: {
-            // Action Sheet for Effects was triggered
-            switch (buttonIndex)
-            {
-                case 0:
-                {
-                    if (self.currentPhotoTag == 1) {
-                        photo1View.image = [self blackAndWhiteEffect: photo1];
-                    }else {
-                        photo2View.image = [self blackAndWhiteEffect: photo2];
-                    }
-                    
-                    break;
-                }
-                case 1:
-                {
-                    if (self.currentPhotoTag == 1) {
-                        photo1View.image = [self sepiaEffect: photo1];
-                    } else {
-                        photo2View.image = [self sepiaEffect: photo2];
-                    }
-                    
-                    break;
-                }
-                case 2:
-                {
-                    if (self.currentPhotoTag == 1) {
-                        photo1View.image = [self blueEffect: photo1];
-                    } else {
-                        photo2View.image = [self blueEffect: photo2];
-                    }
-                    
-                    break;
-                }
-            }
+    // Action Sheet for Effects was triggered
+    switch (buttonIndex)
+    {
+        case 0:
+        {
+            NSLog(@"Get From Library");
+            imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentModalViewController:imgPicker animated:YES];
             break;
         }
-        case 2:{
-            // Action Sheet for Effects was triggered
-            switch (buttonIndex)
-            {
-                case 0:
-                {
-                    NSLog(@"Get From Library");
-                    imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                    [self presentModalViewController:imgPicker animated:YES];
-                    break;
-                }
-                case 1:
-                {
-                    NSLog(@"Camera");
-                    imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                    [self presentModalViewController:imgPicker animated:YES];
-                    break;
-                }
-                case 2:
-                {
-                    NSLog(@"Effects");
-                    
-                    if (currentPhotoTag == 1) {
-                        [GlobalData sharedGlobalData].currentPhoto = photo1;
-                        [GlobalData sharedGlobalData].currentScrollView = scrollview1;
-                    } else {
-                        [GlobalData sharedGlobalData].currentPhoto = photo2;
-                        [GlobalData sharedGlobalData].currentScrollView = scrollview2;
-                    }
-                    
-                    
-                    PhotoEditViewController *aController = [[PhotoEditViewController alloc]init];
-                    [self.navigationController pushViewController:aController animated:YES];
-                    //aController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                    //[self presentModalViewController:aController animated:YES];
-                    
-                    /*
-                    UIActionSheet *styleAlert = [[UIActionSheet alloc] initWithTitle:@"Choose Photo Effect"
-                                                                            delegate:self cancelButtonTitle:@"Cancel"
-                                                              destructiveButtonTitle:nil
-                                                                   otherButtonTitles:	@"Black & White",
-                                                 @"Sepia",
-                                                 @"Blue",
-                                                 nil,
-                                                 nil];
-                    styleAlert.tag = 1;
-                    
-                    // use the same style as the nav bar
-                    styleAlert.actionSheetStyle = self.navigationController.navigationBar.barStyle;
-                    
-                    [styleAlert showInView:self.view];
-                    [styleAlert release];
-                     */
-                    break;
-                }
-            }
-            break;    
+        case 1:
+        {
+            NSLog(@"Camera");
+            imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentModalViewController:imgPicker animated:YES];
+            break;
         }
+        case 2:
+        {
+            NSLog(@"Effects");
+            
+            if (currentPhotoTag == 1) {
+                [GlobalData sharedGlobalData].currentPhoto = photo1;
+                [GlobalData sharedGlobalData].currentScrollView = scrollview1;
+                [GlobalData sharedGlobalData].currentPhotoTag = 1;
+                
+            } else {
+                [GlobalData sharedGlobalData].currentPhoto = photo2;
+                [GlobalData sharedGlobalData].currentScrollView = scrollview2;
+                [GlobalData sharedGlobalData].currentPhotoTag = 2;
+            }
             
             
+            PhotoEditViewController *aController = [[PhotoEditViewController alloc]init];
+            [self.navigationController pushViewController:aController animated:YES];
+            //aController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            //[self presentModalViewController:aController animated:YES];
+            
+            break;
+        }
     }
 }
 #pragma mark -
@@ -533,10 +513,10 @@
 - (UIView*)viewForZoomingInScrollView:(UIScrollView *)aScrollView {
     switch (aScrollView.tag) {
         case 1:
-            return photo1View;
+            return photo1View;//[[scrollview1 subviews] objectAtIndex:0];//
             break;
         case 2:
-            return photo2View;
+            return photo2View; //[[scrollview2 subviews] objectAtIndex:0];//
             break;
     } 
     return nil;

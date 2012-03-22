@@ -8,7 +8,6 @@
 
 #import "PhotoEditViewController.h"
 
-
 @implementation PhotoEditViewController
 
 
@@ -68,15 +67,15 @@
 - (void) selectEffects: (UIButton *) button {
     NSLog(@"Select effects");
     /*
-    imageScrollView.transform = CGAffineTransformIdentity;
-    imageScrollView.contentOffset = CGPointZero;
-    imageScrollView.contentSize = imageScrollView.frame.size;
-    
-    [photo1View removeFromSuperview];
-    //imageView = [[TapDetectingImageView alloc] initWithImage:newImage];
-    
-    [imageScrollView addSubview: photo1View];
-    */
+     imageScrollView.transform = CGAffineTransformIdentity;
+     imageScrollView.contentOffset = CGPointZero;
+     imageScrollView.contentSize = imageScrollView.frame.size;
+     
+     [photo1View removeFromSuperview];
+     //imageView = [[TapDetectingImageView alloc] initWithImage:newImage];
+     
+     [imageScrollView addSubview: photo1View];
+     */
     [[[imageScrollView subviews] objectAtIndex:0] removeFromSuperview];
     
     switch (button.tag)
@@ -85,6 +84,7 @@
         {
             imageView.image = [self blackAndWhiteEffect: image];
             //imageView.image = [self blackAndWhiteEffect: [[[imageScrollView subviews] objectAtIndex:0] image]];
+            //imageView.image = image;//[[[imageScrollView subviews] objectAtIndex:0] image];
             break;
         }
         case 2:
@@ -95,6 +95,13 @@
         case 3:
         {
             imageView.image = [self blueEffect: image];
+            break;
+        }
+        case 4:
+        {
+            button.layer.borderWidth = 2;
+            button.layer.borderColor = [UIColor blackColor].CGColor;
+            NSLog(@"rotate");
             break;
         }
     }
@@ -128,13 +135,18 @@
 - (void) doneAction {
     NSLog(@"done action pressed");
     /*
+     [GlobalData sharedGlobalData].currentScrollView = imageScrollView;
+     NSLog(@"HEADACHE %@",[[[GlobalData sharedGlobalData].currentScrollView subviews] objectAtIndex:0]);
+     NSMutableArray *allControllers = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+     NSLog(@"%@",[allControllers objectAtIndex:[allControllers count] - 2]);
+     //[[allControllers objectAtIndex:[allControllers count] - 2] viewWillAppear:YES];
+     [allControllers release];
+     */
+    
+    [GlobalData sharedGlobalData].fromEffectsTag = 1;
+    
+    imageScrollView.layer.borderWidth = 0;
     [GlobalData sharedGlobalData].currentScrollView = imageScrollView;
-    NSLog(@"HEADACHE %@",[[[GlobalData sharedGlobalData].currentScrollView subviews] objectAtIndex:0]);
-    NSMutableArray *allControllers = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
-    NSLog(@"%@",[allControllers objectAtIndex:[allControllers count] - 2]);
-    //[[allControllers objectAtIndex:[allControllers count] - 2] viewWillAppear:YES];
-    [allControllers release];
-    */
     
     [self.navigationController popViewControllerAnimated:YES];
     //[[self parentViewController] dismissModalViewControllerAnimated:YES];
@@ -143,18 +155,18 @@
     [super loadView];
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] 
-									  initWithTitle:@"Done"                                            
-									  style:UIBarButtonItemStyleBordered 
-									  target:self 
-									  action:@selector(doneAction)];
+                                   initWithTitle:@"Done"                                            
+                                   style:UIBarButtonItemStyleBordered 
+                                   target:self 
+                                   action:@selector(doneAction)];
     
     self.navigationItem.rightBarButtonItem = doneButton;
     [doneButton release];
-        
-    UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(handleRotate:)];
-    [self.view addGestureRecognizer:rotationRecognizer];
-    [rotationRecognizer release];
-    
+    /*    
+     UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(handleRotate:)];
+     [self.view addGestureRecognizer:rotationRecognizer];
+     [rotationRecognizer release];
+     */
     
     UIButton *bwButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[bwButton addTarget:self  action:@selector(selectEffects:) forControlEvents:UIControlEventTouchDown];
@@ -174,6 +186,12 @@
     blueButton.frame = CGRectMake(120, 10, 50,50);
 	blueButton.tag = 3;
     
+    UIButton *rotateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	[rotateButton addTarget:self  action:@selector(selectEffects:) forControlEvents:UIControlEventTouchDown];
+	[rotateButton setTitle:@"Rotate" forState:UIControlStateNormal];
+    rotateButton.frame = CGRectMake(180, 10, 50,50);
+	rotateButton.tag = 4;
+    
     UIScrollView *effectsScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 340, 320, 80)];
     effectsScrollView.backgroundColor = [UIColor redColor];
     effectsScrollView.contentSize = CGSizeMake(800, 80);
@@ -182,45 +200,60 @@
     [effectsScrollView addSubview:bwButton];
     [effectsScrollView addSubview:sepiaButton];
     [effectsScrollView addSubview:blueButton];
+    [effectsScrollView addSubview:rotateButton];
     
-    UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    [effectsScrollView addGestureRecognizer:tapRecognizer];
-    [tapRecognizer release];
+    /*UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+     [effectsScrollView addGestureRecognizer:tapRecognizer];
+     [tapRecognizer release];
+     */
     [self.view addSubview:effectsScrollView];
     
-    image = [GlobalData sharedGlobalData].currentPhoto; //[UIImage imageNamed:@"image.png"];
-    imageView =  [[UIImageView alloc]initWithImage:image]; //[[imageScrollView subviews] objectAtIndex:0];//
-    //imageView.frame = CGRectMake(5, 5, 100, 180);
     
-   /*
-    imageScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, 100, 180)];
+    //imageView.frame = CGRectMake(5, 5, 100, 180);
+    NSLog(@"PHOTO Zoom scale %f", [GlobalData sharedGlobalData].currentScrollView.zoomScale);
+    UIScrollView *tmpScrollView = [GlobalData sharedGlobalData].currentScrollView;
+    
+    imageScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, tmpScrollView.frame.size.width, tmpScrollView.frame.size.height)];
     imageScrollView.scrollEnabled = YES;
     imageScrollView.showsHorizontalScrollIndicator = YES;
     imageScrollView.showsVerticalScrollIndicator = YES;
     imageScrollView.delegate = self;
-    imageScrollView.maximumZoomScale = 50;
-    imageScrollView.minimumZoomScale = .5;
+    imageScrollView.maximumZoomScale = tmpScrollView.maximumZoomScale;//50;
+    imageScrollView.minimumZoomScale = tmpScrollView.minimumZoomScale;//.5;
     imageScrollView.layer.borderWidth = 2;
     imageScrollView.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    // SET ZOOM SCALE AND OFFSETS
+    [imageScrollView setZoomScale:tmpScrollView.zoomScale animated:YES];
+    [imageScrollView setContentOffset:CGPointMake(tmpScrollView.contentOffset.x , tmpScrollView.contentOffset.y)];
+    
     [imageScrollView setCenter:CGPointMake(CGRectGetMidX([self.view bounds]), CGRectGetMidY([self.view bounds])-CGRectGetMidY([effectsScrollView bounds])-20)];//
-    [imageScrollView addSubview:imageView];
+    
+    image = [GlobalData sharedGlobalData].currentPhoto; //[UIImage imageNamed:@"image.png"];
+    imageView =  [[UIImageView alloc]initWithImage:image]; //[[imageScrollView subviews] objectAtIndex:0];//
+    
+    image = [[[tmpScrollView subviews] objectAtIndex:0] image];
+    imageView = [[tmpScrollView subviews] objectAtIndex:0];
+    
     imageScrollView.contentSize = imageView.frame.size;
-    [self.view  addSubview:imageScrollView];
-    */
+    [imageScrollView addSubview:imageView];
     
     
-    imageScrollView = [GlobalData sharedGlobalData].currentScrollView;
-    imageScrollView.layer.borderWidth = 2;
-    imageScrollView.layer.borderColor = [UIColor blackColor].CGColor;
-    //UITapGestureRecognizer
-    //id x = imageScrollView.gestureRecognizers;
-    //[imageScrollView removeGestureRecognizer: x ];
-    imageScrollView.frame = CGRectMake(0, 0, imageScrollView.frame.size.width, imageScrollView.frame.size.height);
-    [imageScrollView setCenter:CGPointMake(CGRectGetMidX([self.view bounds]), CGRectGetMidY([self.view bounds])-CGRectGetMidY([effectsScrollView bounds])-20)];
     [self.view  addSubview:imageScrollView];
+    
+    
+    /*
+     imageScrollView = [GlobalData sharedGlobalData].currentScrollView;
+     imageScrollView.layer.borderWidth = 2;
+     imageScrollView.layer.borderColor = [UIColor blackColor].CGColor;
+     imageScrollView.clipsToBounds = YES;
+     imageScrollView.frame = CGRectMake(0, 0, imageScrollView.frame.size.width, imageScrollView.frame.size.height);
+     [imageScrollView setCenter:CGPointMake(CGRectGetMidX([self.view bounds]), CGRectGetMidY([self.view bounds])-CGRectGetMidY([effectsScrollView bounds])-20)];
+     [self.view  addSubview:imageScrollView];
+     */
     
     //NSLog(@"%@",[[[GlobalData sharedGlobalData].currentScrollView subviews]objectAtIndex:0] );
-    imageView = [[imageScrollView subviews] objectAtIndex:0];
+    //imageView = [[imageScrollView subviews] objectAtIndex:0];
     
     
     UILongPressGestureRecognizer* longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
@@ -235,61 +268,63 @@
     
 }
 - (UIView*)viewForZoomingInScrollView:(UIScrollView *)aScrollView {
+    NSLog(@"it is zoooooooooming");
     return imageView;
 }
 - (void)scrollViewDidEndZooming:(UIScrollView *)zoomedScrollView withView:(UIView *)view atScale:(float)scale
 {
+    NSLog(@"it is zoooooooooming");
     /*
-	photoScale1 = scale;
-    visibleRect.origin = scrollview1.contentOffset;
-    visibleRect.size = scrollview1.bounds.size;
-    NSLog(@"%f ", scale);
-    float theScale = 1.0 / scale;
-    visibleRect.origin.x *= theScale;
-    visibleRect.origin.y *= theScale;
-    visibleRect.size.width *= theScale;
-    visibleRect.size.height *= theScale;
-    */
+     photoScale1 = scale;
+     visibleRect.origin = scrollview1.contentOffset;
+     visibleRect.size = scrollview1.bounds.size;
+     NSLog(@"%f ", scale);
+     float theScale = 1.0 / scale;
+     visibleRect.origin.x *= theScale;
+     visibleRect.origin.y *= theScale;
+     visibleRect.size.width *= theScale;
+     visibleRect.size.height *= theScale;
+     */
 }
 /*
--(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	
-    UITouch *touch = [[event allTouches] anyObject];
-    
-	CGPoint location = [touch locationInView:touch.view];
-	imageView.center = location;
-    
-}
-
-
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	[self touchesBegan:touches withEvent:event];
-    NSLog(@"touched!");
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    if ([touch view] == imageView) {
-        NSLog(@"IT IS image!");
-    }
-}
-*/
+ -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+ 
+ UITouch *touch = [[event allTouches] anyObject];
+ 
+ CGPoint location = [touch locationInView:touch.view];
+ imageView.center = location;
+ 
+ }
+ 
+ 
+ -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+ [self touchesBegan:touches withEvent:event];
+ NSLog(@"touched!");
+ 
+ UITouch *touch = [[event allTouches] anyObject];
+ if ([touch view] == imageView) {
+ NSLog(@"IT IS image!");
+ }
+ }
+ */
 
 /*
  
  //NO WORKING
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	// get touch event
-	UITouch *touch = [[event allTouches] anyObject];
-	CGPoint touchLocation = [touch locationInView:touch.view];
-	
-	if ([touch view] == imageView) {
-		// move the image view
-		imageView.center = touchLocation;
-	} 
-	else if ([touch view] == image2) {
-		// move the image view
-		image2.center = touchLocation;
-	}
-}*/
+ - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+ // get touch event
+ UITouch *touch = [[event allTouches] anyObject];
+ CGPoint touchLocation = [touch locationInView:touch.view];
+ 
+ if ([touch view] == imageView) {
+ // move the image view
+ imageView.center = touchLocation;
+ } 
+ else if ([touch view] == image2) {
+ // move the image view
+ image2.center = touchLocation;
+ }
+ }*/
 
 - (void) dealloc {
     [super dealloc];
