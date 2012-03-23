@@ -10,7 +10,7 @@
 
 
 @implementation GlobalData
-@synthesize currentPhoto, currentScrollView, currentPhotoTag, fromEffectsTag;
+@synthesize currentPhoto, currentScrollView, currentPhotoTag, fromEffectsTag, sticker;
 
 static GlobalData *sharedGlobalData = nil;
 + (GlobalData*)sharedGlobalData {
@@ -20,6 +20,7 @@ static GlobalData *sharedGlobalData = nil;
         // initialize your variables here
         sharedGlobalData.currentPhoto = nil;
         sharedGlobalData.currentScrollView = [[UIScrollView alloc]init];
+        sharedGlobalData.sticker = nil;
         sharedGlobalData.currentPhotoTag = 0;
         sharedGlobalData.fromEffectsTag = 0;
     

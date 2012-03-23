@@ -267,6 +267,7 @@
                 NSLog(@"show scrollview 1");
                 
                 UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: ) ];
+                [scrollview1 removeFromSuperview];
                 scrollview1 = [GlobalData sharedGlobalData].currentScrollView;
                 scrollview1.frame = scrollviewRect1;
                 scrollview1.tag = 1;
@@ -282,6 +283,7 @@
             case 2:
                 NSLog(@"show scrollview 2");
                 UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: ) ];
+                [scrollview2 removeFromSuperview];
                 scrollview2 = [GlobalData sharedGlobalData].currentScrollView;
                 scrollview2.frame = scrollviewRect2;
                 scrollview2.tag = 2;
@@ -384,7 +386,10 @@
     scrollview1.minimumZoomScale = .5;
     scrollview1.tag = 1;
     
-    [scrollview1 addSubview:photo1View];
+    contentView1 = [[UIView alloc]init];
+    [contentView1 addSubview:photo1View];
+    [scrollview1 addSubview:contentView1];
+    //[scrollview1 addSubview:photo1View];
     scrollview1.contentSize = photo1View.frame.size;
     
     UITapGestureRecognizer *singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: ) ];
@@ -403,7 +408,10 @@
     scrollview2.minimumZoomScale = .5;
     scrollview2.tag = 2;
     
-    [scrollview2 addSubview:photo2View];
+    contentView2 = [[UIView alloc]init];
+    [contentView2 addSubview:photo2View];
+    [scrollview2 addSubview:contentView2];
+    //[scrollview2 addSubview:photo2View];
     scrollview2.contentSize = photo2View.frame.size;
     
     UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: )];
@@ -514,10 +522,12 @@
     NSLog(@"%d",aScrollView.tag);
     switch (aScrollView.tag) {
         case 1:
-            return photo1View;//[[scrollview1 subviews] objectAtIndex:0];//
+            return contentView1;
+            //return photo1View;//[[scrollview1 subviews] objectAtIndex:0];//
             break;
         case 2:
-            return photo2View; //[[scrollview2 subviews] objectAtIndex:0];//
+            return contentView2;
+            //return photo2View; //[[scrollview2 subviews] objectAtIndex:0];//
             break;
     } 
     return nil;

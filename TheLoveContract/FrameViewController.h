@@ -22,6 +22,9 @@
     UIImage *photo2;
     UIImageView *photo1View;
     UIImageView *photo2View;
+    UIView *contentView1;
+    UIView *contentView2;
+    
     UIImageView *resultingView;
     UIScrollView *scrollview1;
     UIScrollView *scrollview2;

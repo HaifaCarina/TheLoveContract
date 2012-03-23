@@ -9,11 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "GlobalData.h"
 #import <QuartzCore/QuartzCore.h>
+#import "StickersViewController.h"
 @interface PhotoEditViewController : UIViewController <UIScrollViewDelegate>{
     UIImageView *imageView;
     int angle;
     UIImage *image;
     UIScrollView *imageScrollView;
+    float maximumScale;
+    UIRotationGestureRecognizer *rotationRecognizer;
+    float scrollViewScale;
+    UIButton *zoomButton;
+    UIButton *rotateButton;
+    UIView *contentView;
 }
 
 @end

@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "TheLoveContract/FrameViewController.m"
-         timestampString = "354103938.427656"
+         timestampString = "354114016.317142"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "396"
-         endingLineNumber = "396"
+         startingLineNumber = "358"
+         endingLineNumber = "358"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>

@@ -80,6 +80,10 @@
 		A596788415107D0C00727479 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A596788315107D0C00727479 /* MessageUI.framework */; };
 		A596788615107D1400727479 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A596788515107D1400727479 /* Security.framework */; };
 		A596788815107D1D00727479 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A596788715107D1D00727479 /* SystemConfiguration.framework */; };
+		A5ACD39C151BDA6100F66A6F /* StickersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5ACD39B151BDA6100F66A6F /* StickersViewController.m */; };
+		A5ACD3A1151BDA7A00F66A6F /* bunny.png in Resources */ = {isa = PBXBuildFile; fileRef = A5ACD39E151BDA7A00F66A6F /* bunny.png */; };
+		A5ACD3A2151BDA7A00F66A6F /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = A5ACD39F151BDA7A00F66A6F /* heart.png */; };
+		A5ACD3A3151BDA7A00F66A6F /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A5ACD3A0151BDA7A00F66A6F /* star.png */; };
 		A5D1489B150E053500057341 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D1489A150E053500057341 /* UIKit.framework */; };
 		A5D1489D150E053500057341 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D1489C150E053500057341 /* Foundation.framework */; };
 		A5D1489F150E053500057341 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D1489E150E053500057341 /* CoreGraphics.framework */; };
@@ -252,6 +256,11 @@
 		A596788315107D0C00727479 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A596788515107D1400727479 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A596788715107D1D00727479 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A5ACD39A151BDA6100F66A6F /* StickersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickersViewController.h; sourceTree = "<group>"; };
+		A5ACD39B151BDA6100F66A6F /* StickersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickersViewController.m; sourceTree = "<group>"; };
+		A5ACD39E151BDA7A00F66A6F /* bunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bunny.png; sourceTree = "<group>"; };
+		A5ACD39F151BDA7A00F66A6F /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		A5ACD3A0151BDA7A00F66A6F /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		A5D14896150E053500057341 /* TheLoveContract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLoveContract.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D1489A150E053500057341 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A5D1489C150E053500057341 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -713,6 +722,8 @@
 				A596778F1510682800727479 /* FrameViewController.m */,
 				A5F7642915187DB3009C4BEB /* PhotoEditViewController.h */,
 				A5F7642A15187DB3009C4BEB /* PhotoEditViewController.m */,
+				A5ACD39A151BDA6100F66A6F /* StickersViewController.h */,
+				A5ACD39B151BDA6100F66A6F /* StickersViewController.m */,
 				A5D148AC150E053500057341 /* MainWindow.xib */,
 				A5D148A1150E053500057341 /* Supporting Files */,
 			);
@@ -722,6 +733,9 @@
 		A5D148A1150E053500057341 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A5ACD39E151BDA7A00F66A6F /* bunny.png */,
+				A5ACD39F151BDA7A00F66A6F /* heart.png */,
+				A5ACD3A0151BDA7A00F66A6F /* star.png */,
 				A57FE30E15119F5F006D028B /* 1.jpg */,
 				A57FE30F15119F5F006D028B /* 2.jpeg */,
 				A57FE31015119F5F006D028B /* 3.jpg */,
@@ -853,6 +867,9 @@
 				A57FE31315119F5F006D028B /* 2.jpeg in Resources */,
 				A57FE31415119F5F006D028B /* 3.jpg in Resources */,
 				A57FE31515119F5F006D028B /* 4.jpg in Resources */,
+				A5ACD3A1151BDA7A00F66A6F /* bunny.png in Resources */,
+				A5ACD3A2151BDA7A00F66A6F /* heart.png in Resources */,
+				A5ACD3A3151BDA7A00F66A6F /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +971,7 @@
 				A596788215107C4000727479 /* SHKViewControllerWrapper.m in Sources */,
 				A5F7641715184470009C4BEB /* GlobalData.m in Sources */,
 				A5F7642B15187DB3009C4BEB /* PhotoEditViewController.m in Sources */,
+				A5ACD39C151BDA6100F66A6F /* StickersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
