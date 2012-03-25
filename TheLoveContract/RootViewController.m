@@ -71,6 +71,7 @@
 	UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();  
 	UIGraphicsEndImageContext();
     
+    [imageView release];
     return resultImage;
 
 }
@@ -88,6 +89,7 @@
 	UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();  
 	UIGraphicsEndImageContext();
     
+    [imageView release];
     return resultImage;
     
 }

@@ -315,6 +315,7 @@
     scrollview1.tag = 1;
     
     [scrollview1 addGestureRecognizer:singleTap1]; 
+    [singleTap1 release];
     [scrollview1 addSubview:contentView1];
     [self.view addSubview:scrollview1];
     
@@ -334,6 +335,7 @@
     scrollview2.tag = 2;
     
     [scrollview2 addGestureRecognizer:singleTap2]; 
+    [singleTap2 release];
     [scrollview2 addSubview:contentView2];
     [self.view addSubview:scrollview2];
     
@@ -411,6 +413,7 @@
             [self.navigationController pushViewController:aController animated:YES];
             //aController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             //[self presentModalViewController:aController animated:YES];
+            [aController release];
             
             break;
         }

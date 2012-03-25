@@ -44,6 +44,7 @@
 	UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();  
 	UIGraphicsEndImageContext();
     
+    [imgView release];
     return resultImage;
     
 }
@@ -61,6 +62,7 @@
 	UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();  
 	UIGraphicsEndImageContext();
     
+    [imgView release];
     return resultImage;
     
 }
@@ -270,10 +272,11 @@
         
     }
 }
+
 - (void) loadView {
     [super loadView];
    
-    
+    self.navigationItem.hidesBackButton = YES;
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] 
                                    initWithTitle:@"Done"                                            
@@ -346,10 +349,12 @@
      [tapRecognizer release];
      */
     [self.view addSubview:effectsScrollView];
-    
+    [effectsScrollView release];
     
     //imageView.frame = CGRectMake(5, 5, 100, 180);
     NSLog(@"PHOTO Zoom scale %f", [GlobalData sharedGlobalData].currentScrollView.zoomScale);
+    
+    
     UIScrollView *tmpScrollView = [GlobalData sharedGlobalData].currentScrollView;
     
     imageScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, tmpScrollView.frame.size.width, tmpScrollView.frame.size.height)];
@@ -384,6 +389,7 @@
     [contentView addSubview:imageView];
     [imageScrollView addSubview:contentView];
     [self.view  addSubview:imageScrollView];
+    
     
     // END ORIGINAL CODE
      

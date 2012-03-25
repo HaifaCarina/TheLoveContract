@@ -13,19 +13,17 @@
 #import "PhotoEditViewController.h"
 #import "GlobalData.h"
 @interface FrameViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIActionSheetDelegate, UIScrollViewDelegate>{
-    UIImagePickerController *imgPicker;
     
+    UIImagePickerController *imgPicker;
     int tag;
     int currentPhotoTag;
     UIImageView *photoView1;
     UIImageView *photoView2;
     UIView *contentView1;
     UIView *contentView2;
-    
     UIImageView *templateView;
     UIScrollView *scrollview1;
     UIScrollView *scrollview2;
-    
     CGRect scrollviewRect1;
     CGRect scrollviewRect2;
     

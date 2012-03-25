@@ -8,11 +8,10 @@
 /*
  TO DO:
  - Movable element
- 
+ - Create Undo Button
  FIX:
  - rotate + zoom = SGBRT error
- - back button loses the image
- - Fix scrollview internal components and customization logic
+ - 3rd set of photo->frame exchange loses the image
  
  */
 #import <UIKit/UIKit.h>

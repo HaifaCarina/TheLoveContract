@@ -59,7 +59,7 @@
     sticker1View.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: )];
     [sticker1View addGestureRecognizer:singleTap1]; 
-    
+    [singleTap1 release];
     
     sticker2 = [UIImage imageNamed:@"bunny.png"];
     UIImageView *sticker2View = [[UIImageView alloc]initWithImage:sticker2];
@@ -68,6 +68,7 @@
     sticker2View.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: )];
     [sticker2View addGestureRecognizer:singleTap2]; 
+    [singleTap2 release];
     
     sticker3 = [UIImage imageNamed:@"heart.png"];
     UIImageView *sticker3View = [[UIImageView alloc]initWithImage:sticker3];
@@ -76,6 +77,7 @@
     sticker3View.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: )];
     [sticker3View addGestureRecognizer:singleTap3]; 
+    [singleTap3 release];
     
     sticker4 = [UIImage imageNamed:@"star.png"];
     UIImageView *sticker4View = [[UIImageView alloc]initWithImage:sticker4];
@@ -84,6 +86,7 @@
     sticker4View.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured: )];
     [sticker4View addGestureRecognizer:singleTap4]; 
+    [singleTap4 release];
     
     UIScrollView *imageScrollView = [[UIScrollView alloc]initWithFrame: self.view.frame];
     imageScrollView.contentSize = CGSizeMake(self.view.frame.size.width, 800);
@@ -93,13 +96,20 @@
     imageScrollView.backgroundColor = [UIColor blueColor];
     imageScrollView.userInteractionEnabled = YES;
     imageScrollView.tag = 100;
+    
+    
     [imageScrollView addSubview:sticker1View];
     [imageScrollView addSubview:sticker2View];
     [imageScrollView addSubview:sticker3View];
     [imageScrollView addSubview:sticker4View];
     
+    [sticker1View release];
+    [sticker2View release];
+    [sticker3View release];
+    [sticker4View release];
     
     [self.view addSubview:imageScrollView];
+    [imageScrollView release];
     
     
     UILongPressGestureRecognizer* longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
