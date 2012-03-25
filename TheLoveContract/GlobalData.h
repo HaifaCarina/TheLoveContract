@@ -11,6 +11,7 @@
 
 @interface GlobalData : NSObject {
     UIImage *currentPhoto;
+    UIImageView *currentPhotoView;
     UIScrollView *currentScrollView;
     UIImage *sticker;
     int currentPhotoTag;
@@ -19,6 +20,7 @@
 }
 
 @property (nonatomic, retain) UIImage *currentPhoto;
+@property (nonatomic, retain) UIImageView *currentPhotoView;
 @property (nonatomic, retain) UIScrollView *currentScrollView;
 @property (nonatomic, retain) UIImage *sticker;
 @property (nonatomic) int currentPhotoTag;
