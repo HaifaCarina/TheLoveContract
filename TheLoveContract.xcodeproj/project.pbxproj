@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A56641F615202F3F0004B6F4 /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A56641F515202F3F0004B6F4 /* CustomScrollView.m */; };
 		A57FE31215119F5F006D028B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57FE30E15119F5F006D028B /* 1.jpg */; };
 		A57FE31315119F5F006D028B /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A57FE30F15119F5F006D028B /* 2.jpeg */; };
 		A57FE31415119F5F006D028B /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57FE31015119F5F006D028B /* 3.jpg */; };
@@ -117,6 +118,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A56641F415202F3F0004B6F4 /* CustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
+		A56641F515202F3F0004B6F4 /* CustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
 		A57FE30E15119F5F006D028B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		A57FE30F15119F5F006D028B /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
 		A57FE31015119F5F006D028B /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -724,6 +727,8 @@
 				A5F7642A15187DB3009C4BEB /* PhotoEditViewController.m */,
 				A5ACD39A151BDA6100F66A6F /* StickersViewController.h */,
 				A5ACD39B151BDA6100F66A6F /* StickersViewController.m */,
+				A56641F415202F3F0004B6F4 /* CustomScrollView.h */,
+				A56641F515202F3F0004B6F4 /* CustomScrollView.m */,
 				A5D148AC150E053500057341 /* MainWindow.xib */,
 				A5D148A1150E053500057341 /* Supporting Files */,
 			);
@@ -972,6 +977,7 @@
 				A5F7641715184470009C4BEB /* GlobalData.m in Sources */,
 				A5F7642B15187DB3009C4BEB /* PhotoEditViewController.m in Sources */,
 				A5ACD39C151BDA6100F66A6F /* StickersViewController.m in Sources */,
+				A56641F615202F3F0004B6F4 /* CustomScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

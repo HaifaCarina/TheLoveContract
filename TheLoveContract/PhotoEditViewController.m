@@ -357,7 +357,8 @@
     
     UIScrollView *tmpScrollView = [GlobalData sharedGlobalData].currentScrollView;
     
-    imageScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, tmpScrollView.frame.size.width, tmpScrollView.frame.size.height)];
+    //imageScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, tmpScrollView.frame.size.width, tmpScrollView.frame.size.height)];
+    imageScrollView = [[CustomScrollView alloc]initWithFrame: CGRectMake(0, 0, tmpScrollView.frame.size.width, tmpScrollView.frame.size.height)];
     imageScrollView.scrollEnabled = YES;
     imageScrollView.showsHorizontalScrollIndicator = YES;
     imageScrollView.showsVerticalScrollIndicator = YES;
@@ -376,11 +377,13 @@
     
     
     // BACk to original code			
-    image = [GlobalData sharedGlobalData].currentPhoto; //[UIImage imageNamed:@"image.png"];
-    imageView =  [[UIImageView alloc]initWithImage:image]; //[[imageScrollView subviews] objectAtIndex:0];//
-    imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    image = [[[[[tmpScrollView subviews] objectAtIndex:0] subviews ]objectAtIndex:0]image];
-    imageView = [[[[tmpScrollView subviews] objectAtIndex:0] subviews ]objectAtIndex:0];
+    //image = [GlobalData sharedGlobalData].currentPhoto; //[UIImage imageNamed:@"image.png"];
+    //imageView =  [GlobalData sharedGlobalData].currentPhotoView;//[[UIImageView alloc]initWithImage:image]; //[[imageScrollView subviews] objectAtIndex:0];//
+    imageView =  [GlobalData sharedGlobalData].currentPhotoView;
+    
+    imageView.frame = CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height);
+    //image = [[[[[tmpScrollView subviews] objectAtIndex:0] subviews ]objectAtIndex:0]image];
+    //imageView = [[[[tmpScrollView subviews] objectAtIndex:0] subviews ]objectAtIndex:0];
     
     imageScrollView.contentSize = imageView.frame.size;
     //[imageScrollView addSubview:imageView];
@@ -500,25 +503,26 @@
 }
 /*
  -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
- 
- UITouch *touch = [[event allTouches] anyObject];
- 
- CGPoint location = [touch locationInView:touch.view];
- imageView.center = location;
+     
+     UITouch *touch = [[event allTouches] anyObject];
+     
+     CGPoint location = [touch locationInView:touch.view];
+     imageView.center = location;
  
  }
  
  
  -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
- [self touchesBegan:touches withEvent:event];
- NSLog(@"touched!");
+     [self touchesBegan:touches withEvent:event];
+     NSLog(@"touched!");
  
- UITouch *touch = [[event allTouches] anyObject];
- if ([touch view] == imageView) {
- NSLog(@"IT IS image!");
+     UITouch *touch = [[event allTouches] anyObject];
+     if ([touch view] == imageView) {
+         NSLog(@"IT IS image!");
+     }
  }
- }
- */
+ 
+*/
 
 /*
  
