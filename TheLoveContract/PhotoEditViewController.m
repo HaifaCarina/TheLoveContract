@@ -248,10 +248,14 @@
     
     UIImageView *imgView = [[UIImageView alloc]initWithImage:img];
     imgView.frame = CGRectMake(0, 0, 50, 50);
-    [contentView addSubview:imageView];
+    //[imageView removeFromSuperview];
+    //[contentView addSubview:imageView];
     [contentView addSubview:imgView];
-    [contentView removeFromSuperview];
-    [imageScrollView addSubview:contentView];
+    [imageView removeFromSuperview];
+    [contentView addSubview:imageView];
+    [contentView sendSubviewToBack:imageView];
+    //[contentView removeFromSuperview];
+    //[imageScrollView addSubview:contentView];
     //[imageScrollView addSubview:imgView];
     //[self.view  addSubview:imgView];
     [imgView release];
@@ -269,7 +273,7 @@
         NSLog(@"add sticker add sticker add sticker");
         
         [self addSticker:[GlobalData sharedGlobalData].sticker];
-        
+        [GlobalData sharedGlobalData].sticker = nil;
     }
 }
 
@@ -390,6 +394,7 @@
     contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, imageScrollView.contentSize.width, imageScrollView.contentSize.height)];
     //contentView.backgroundColor = [UIColor blueColor];
     [contentView addSubview:imageView];
+    [contentView sendSubviewToBack:imageView];
     [imageScrollView addSubview:contentView];
     [self.view  addSubview:imageScrollView];
     

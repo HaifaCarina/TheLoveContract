@@ -14,37 +14,29 @@
     NSLog(@"CustomScrollView touched began!");
     
     UITouch *touch = [[event allTouches] anyObject];
-    
+    NSLog(@"TouchVIEW IS A %@",touch.view);
     CGPoint location = [touch locationInView:touch.view];
+    
     UIView *sub = [[UIView alloc]init];
-    sub = [[[[self subviews] objectAtIndex:0] subviews] objectAtIndex:1];
-    sub.backgroundColor = [UIColor blueColor];
-    sub.center = location;
-    NSLog(@"SUBVIEW IS A %@",sub);
-    /*//CGPoint location = [[touches anyObject] locationInView : imageScrollView];
-    CGPoint location = [touch locationInView:touch.view];
-    UIView *object = touch.view;
-    NSLog(@"%@",touch.view);
+    sub = [[self subviews] objectAtIndex:0] ;
+
+    for (int i = 1; i < [[sub subviews] count]; i++ ) {
+        UIView *aView = [[sub subviews] objectAtIndex:i];
+        
+        if (CGRectContainsPoint([aView frame], [touch locationInView:sub])) {
+            aView.center = location;
+        }
+    }
     
-    //isKindOfClass:[UIRotationGestureRecognizer class]
-    //contentView.center = location;
-    */
-    
+    //[sub release];
 }
--(void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event 
-{	
-	if (!self.dragging) {
-		[self.nextResponder touchesEnded: touches withEvent:event]; 
-	}		
-    
-	[super touchesEnded: touches withEvent: event];
-}
+
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     [self touchesBegan:touches withEvent:event];
     NSLog(@"CustomScrollView touched!");
     
-    UITouch *touch = [[event allTouches] anyObject];
+    //UITouch *touch = [[event allTouches] anyObject];
 
 }
 

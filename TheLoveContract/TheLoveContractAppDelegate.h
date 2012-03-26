@@ -10,6 +10,8 @@
  - Movable element
  - Create Undo Button
  - use the same photo even when changing templates
+ - remove stickerImageView from repository
+ 
  FIX:
  - rotate + zoom = SGBRT error
  - 3rd set of photo->frame exchange loses the image
