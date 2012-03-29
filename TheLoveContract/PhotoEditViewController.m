@@ -156,13 +156,20 @@
 - (void) handleRotate: (UIRotationGestureRecognizer *)recognizer {
     
     
-    float rotation = angle + -recognizer.rotation;	
+    float rotation = angle + -recognizer.rotation;		
 	
     NSLog(@"BEFORE IMAGE VIEW SIZE %f,%f,%f,%f", imageView.frame.origin.x, imageView.frame.origin.y, imageView.frame.size.width, imageView.frame.size.height);
     //imageView.transform = CGAffineTransformMakeRotation(-rotation);
-	contentView.transform = CGAffineTransformMakeRotation(-rotation);
+	//CGSizeApplyAffineTransform(CGSizeMake(imageView.frame.size.width, imageView.frame.size.height), contentView.transform);
+    
+    //contentView.transform = CGAffineTransformMakeRotation(-rotation); 
+    
+	contentView.transform = (CGAffineTransform) CGAffineTransformRotate (contentView.transform, -rotation);
 	
+    //contentView.transform = (CGAffineTransform) CGAffineTransformRotate (contentView.transform, -rotation);
 	// once the user has finsihed the rotate, save the new angle
+    
+    NSLog(@"Rotation: %f", rotation);
 	if (recognizer.state == UIGestureRecognizerStateEnded) {
 		angle = rotation;
         NSLog(@"AFTER IMAGE VIEW SIZE %f,%f,%f,%f", imageView.frame.origin.x, imageView.frame.origin.y, imageView.frame.size.width, imageView.frame.size.height);
