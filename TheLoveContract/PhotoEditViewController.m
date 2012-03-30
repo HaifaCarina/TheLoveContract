@@ -391,7 +391,7 @@
     //image = [GlobalData sharedGlobalData].currentPhoto; //[UIImage imageNamed:@"image.png"];
     //imageView =  [GlobalData sharedGlobalData].currentPhotoView;//[[UIImageView alloc]initWithImage:image]; //[[imageScrollView subviews] objectAtIndex:0];//
     imageView =  [GlobalData sharedGlobalData].currentPhotoView;
-    
+    image = [[GlobalData sharedGlobalData].currentPhotoView image];
     imageView.frame = CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height);
     //image = [[[[[tmpScrollView subviews] objectAtIndex:0] subviews ]objectAtIndex:0]image];
     //imageView = [[[[tmpScrollView subviews] objectAtIndex:0] subviews ]objectAtIndex:0];
