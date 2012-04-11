@@ -49,7 +49,6 @@
 		A596786315107C4000727479 /* SHKMail.m in Sources */ = {isa = PBXBuildFile; fileRef = A59677F715107C4000727479 /* SHKMail.m */; };
 		A596786415107C4000727479 /* SHKSafari.m in Sources */ = {isa = PBXBuildFile; fileRef = A59677FA15107C4000727479 /* SHKSafari.m */; };
 		A596786515107C4000727479 /* SHKPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = A59677FD15107C4000727479 /* SHKPhotoAlbum.m */; };
-		A596786615107C4000727479 /* SHKDelicious.m in Sources */ = {isa = PBXBuildFile; fileRef = A596780115107C4000727479 /* SHKDelicious.m */; };
 		A596786715107C4000727479 /* FBConnect.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A596780415107C4000727479 /* FBConnect.bundle */; };
 		A596786815107C4000727479 /* FBConnectGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = A596780715107C4000727479 /* FBConnectGlobal.m */; };
 		A596786915107C4000727479 /* FBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A596780915107C4000727479 /* FBDialog.m */; };
@@ -63,10 +62,6 @@
 		A596787115107C4000727479 /* FBXMLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A596781915107C4000727479 /* FBXMLHandler.m */; };
 		A596787215107C4000727479 /* SHKFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = A596781B15107C4000727479 /* SHKFacebook.m */; };
 		A596787315107C4000727479 /* SHKFBStreamDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A596781D15107C4000727479 /* SHKFBStreamDialog.m */; };
-		A596787415107C4000727479 /* SHKGoogleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = A596782015107C4000727479 /* SHKGoogleReader.m */; };
-		A596787515107C4000727479 /* SHKInstapaper.m in Sources */ = {isa = PBXBuildFile; fileRef = A596782315107C4000727479 /* SHKInstapaper.m */; };
-		A596787615107C4000727479 /* SHKPinboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A596782615107C4000727479 /* SHKPinboard.m */; };
-		A596787715107C4000727479 /* SHKReadItLater.m in Sources */ = {isa = PBXBuildFile; fileRef = A596782915107C4000727479 /* SHKReadItLater.m */; };
 		A596787815107C4000727479 /* SHKTumblr.m in Sources */ = {isa = PBXBuildFile; fileRef = A596782C15107C4000727479 /* SHKTumblr.m */; };
 		A596787915107C4000727479 /* SHKTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = A596782F15107C4000727479 /* SHKTwitter.m */; };
 		A596787A15107C4000727479 /* SHKTwitterForm.m in Sources */ = {isa = PBXBuildFile; fileRef = A596783115107C4000727479 /* SHKTwitterForm.m */; };
@@ -95,9 +90,6 @@
 		A5D148B5150E053500057341 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D1489A150E053500057341 /* UIKit.framework */; };
 		A5D148B6150E053500057341 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D1489C150E053500057341 /* Foundation.framework */; };
 		A5D148B7150E053500057341 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D1489E150E053500057341 /* CoreGraphics.framework */; };
-		A5D148BF150E053600057341 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5D148BD150E053600057341 /* InfoPlist.strings */; };
-		A5D148C2150E053600057341 /* TheLoveContractTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A5D148C1150E053600057341 /* TheLoveContractTests.h */; };
-		A5D148C4150E053600057341 /* TheLoveContractTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D148C3150E053600057341 /* TheLoveContractTests.m */; };
 		A5D148CF150E054800057341 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D148CE150E054800057341 /* RootViewController.m */; };
 		A5D4E7A7150F550600032A8A /* sepia.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D4E7A6150F550600032A8A /* sepia.png */; };
 		A5D4E7A9150F562800032A8A /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D4E7A8150F562800032A8A /* blue.png */; };
@@ -197,8 +189,6 @@
 		A59677FA15107C4000727479 /* SHKSafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKSafari.m; sourceTree = "<group>"; };
 		A59677FC15107C4000727479 /* SHKPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKPhotoAlbum.h; sourceTree = "<group>"; };
 		A59677FD15107C4000727479 /* SHKPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKPhotoAlbum.m; sourceTree = "<group>"; };
-		A596780015107C4000727479 /* SHKDelicious.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKDelicious.h; sourceTree = "<group>"; };
-		A596780115107C4000727479 /* SHKDelicious.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKDelicious.m; sourceTree = "<group>"; };
 		A596780415107C4000727479 /* FBConnect.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBConnect.bundle; sourceTree = "<group>"; };
 		A596780515107C4000727479 /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
 		A596780615107C4000727479 /* FBConnectGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnectGlobal.h; sourceTree = "<group>"; };
@@ -225,14 +215,6 @@
 		A596781B15107C4000727479 /* SHKFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKFacebook.m; sourceTree = "<group>"; };
 		A596781C15107C4000727479 /* SHKFBStreamDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKFBStreamDialog.h; sourceTree = "<group>"; };
 		A596781D15107C4000727479 /* SHKFBStreamDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKFBStreamDialog.m; sourceTree = "<group>"; };
-		A596781F15107C4000727479 /* SHKGoogleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKGoogleReader.h; sourceTree = "<group>"; };
-		A596782015107C4000727479 /* SHKGoogleReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKGoogleReader.m; sourceTree = "<group>"; };
-		A596782215107C4000727479 /* SHKInstapaper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKInstapaper.h; sourceTree = "<group>"; };
-		A596782315107C4000727479 /* SHKInstapaper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKInstapaper.m; sourceTree = "<group>"; };
-		A596782515107C4000727479 /* SHKPinboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKPinboard.h; sourceTree = "<group>"; };
-		A596782615107C4000727479 /* SHKPinboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKPinboard.m; sourceTree = "<group>"; };
-		A596782815107C4000727479 /* SHKReadItLater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKReadItLater.h; sourceTree = "<group>"; };
-		A596782915107C4000727479 /* SHKReadItLater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKReadItLater.m; sourceTree = "<group>"; };
 		A596782B15107C4000727479 /* SHKTumblr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKTumblr.h; sourceTree = "<group>"; };
 		A596782C15107C4000727479 /* SHKTumblr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKTumblr.m; sourceTree = "<group>"; };
 		A596782E15107C4000727479 /* SHKTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKTwitter.h; sourceTree = "<group>"; };
@@ -276,11 +258,6 @@
 		A5D148AA150E053500057341 /* TheLoveContractAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheLoveContractAppDelegate.m; sourceTree = "<group>"; };
 		A5D148AD150E053500057341 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		A5D148B4150E053500057341 /* TheLoveContractTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheLoveContractTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5D148BC150E053600057341 /* TheLoveContractTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TheLoveContractTests-Info.plist"; sourceTree = "<group>"; };
-		A5D148BE150E053600057341 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A5D148C0150E053600057341 /* TheLoveContractTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheLoveContractTests-Prefix.pch"; sourceTree = "<group>"; };
-		A5D148C1150E053600057341 /* TheLoveContractTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheLoveContractTests.h; sourceTree = "<group>"; };
-		A5D148C3150E053600057341 /* TheLoveContractTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheLoveContractTests.m; sourceTree = "<group>"; };
 		A5D148CD150E054800057341 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		A5D148CE150E054800057341 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		A5D4E7A6150F550600032A8A /* sepia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sepia.png; sourceTree = "<group>"; };
@@ -538,25 +515,11 @@
 		A59677FE15107C4000727479 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A59677FF15107C4000727479 /* Delicious */,
 				A596780215107C4000727479 /* Facebook */,
-				A596781E15107C4000727479 /* Google Reader */,
-				A596782115107C4000727479 /* Instapaper */,
-				A596782415107C4000727479 /* Pinboard */,
-				A596782715107C4000727479 /* Read It Later */,
 				A596782A15107C4000727479 /* Tumblr */,
 				A596782D15107C4000727479 /* Twitter */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		A59677FF15107C4000727479 /* Delicious */ = {
-			isa = PBXGroup;
-			children = (
-				A596780015107C4000727479 /* SHKDelicious.h */,
-				A596780115107C4000727479 /* SHKDelicious.m */,
-			);
-			path = Delicious;
 			sourceTree = "<group>";
 		};
 		A596780215107C4000727479 /* Facebook */ = {
@@ -598,42 +561,6 @@
 				A596781915107C4000727479 /* FBXMLHandler.m */,
 			);
 			path = FBConnect;
-			sourceTree = "<group>";
-		};
-		A596781E15107C4000727479 /* Google Reader */ = {
-			isa = PBXGroup;
-			children = (
-				A596781F15107C4000727479 /* SHKGoogleReader.h */,
-				A596782015107C4000727479 /* SHKGoogleReader.m */,
-			);
-			path = "Google Reader";
-			sourceTree = "<group>";
-		};
-		A596782115107C4000727479 /* Instapaper */ = {
-			isa = PBXGroup;
-			children = (
-				A596782215107C4000727479 /* SHKInstapaper.h */,
-				A596782315107C4000727479 /* SHKInstapaper.m */,
-			);
-			path = Instapaper;
-			sourceTree = "<group>";
-		};
-		A596782415107C4000727479 /* Pinboard */ = {
-			isa = PBXGroup;
-			children = (
-				A596782515107C4000727479 /* SHKPinboard.h */,
-				A596782615107C4000727479 /* SHKPinboard.m */,
-			);
-			path = Pinboard;
-			sourceTree = "<group>";
-		};
-		A596782715107C4000727479 /* Read It Later */ = {
-			isa = PBXGroup;
-			children = (
-				A596782815107C4000727479 /* SHKReadItLater.h */,
-				A596782915107C4000727479 /* SHKReadItLater.m */,
-			);
-			path = "Read It Later";
 			sourceTree = "<group>";
 		};
 		A596782A15107C4000727479 /* Tumblr */ = {
@@ -683,7 +610,6 @@
 			isa = PBXGroup;
 			children = (
 				A5D148A0150E053500057341 /* TheLoveContract */,
-				A5D148BA150E053500057341 /* TheLoveContractTests */,
 				A5D14899150E053500057341 /* Frameworks */,
 				A5D14897150E053500057341 /* Products */,
 			);
@@ -754,26 +680,6 @@
 				A5D148A3150E053500057341 /* InfoPlist.strings */,
 				A5D148A6150E053500057341 /* TheLoveContract-Prefix.pch */,
 				A5D148A7150E053500057341 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A5D148BA150E053500057341 /* TheLoveContractTests */ = {
-			isa = PBXGroup;
-			children = (
-				A5D148C1150E053600057341 /* TheLoveContractTests.h */,
-				A5D148C3150E053600057341 /* TheLoveContractTests.m */,
-				A5D148BB150E053600057341 /* Supporting Files */,
-			);
-			path = TheLoveContractTests;
-			sourceTree = "<group>";
-		};
-		A5D148BB150E053600057341 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A5D148BC150E053600057341 /* TheLoveContractTests-Info.plist */,
-				A5D148BD150E053600057341 /* InfoPlist.strings */,
-				A5D148C0150E053600057341 /* TheLoveContractTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -882,8 +788,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D148BF150E053600057341 /* InfoPlist.strings in Resources */,
-				A5D148C2150E053600057341 /* TheLoveContractTests.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,7 +850,6 @@
 				A596786315107C4000727479 /* SHKMail.m in Sources */,
 				A596786415107C4000727479 /* SHKSafari.m in Sources */,
 				A596786515107C4000727479 /* SHKPhotoAlbum.m in Sources */,
-				A596786615107C4000727479 /* SHKDelicious.m in Sources */,
 				A596786815107C4000727479 /* FBConnectGlobal.m in Sources */,
 				A596786915107C4000727479 /* FBDialog.m in Sources */,
 				A596786A15107C4000727479 /* FBFeedDialog.m in Sources */,
@@ -959,10 +862,6 @@
 				A596787115107C4000727479 /* FBXMLHandler.m in Sources */,
 				A596787215107C4000727479 /* SHKFacebook.m in Sources */,
 				A596787315107C4000727479 /* SHKFBStreamDialog.m in Sources */,
-				A596787415107C4000727479 /* SHKGoogleReader.m in Sources */,
-				A596787515107C4000727479 /* SHKInstapaper.m in Sources */,
-				A596787615107C4000727479 /* SHKPinboard.m in Sources */,
-				A596787715107C4000727479 /* SHKReadItLater.m in Sources */,
 				A596787815107C4000727479 /* SHKTumblr.m in Sources */,
 				A596787915107C4000727479 /* SHKTwitter.m in Sources */,
 				A596787A15107C4000727479 /* SHKTwitterForm.m in Sources */,
@@ -985,7 +884,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D148C4150E053600057341 /* TheLoveContractTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,14 +921,6 @@
 				A5D148AD150E053500057341 /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		A5D148BD150E053600057341 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A5D148BE150E053600057341 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

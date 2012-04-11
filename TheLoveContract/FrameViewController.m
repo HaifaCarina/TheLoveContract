@@ -149,13 +149,13 @@
     
     templateView.image = resultingImage;
     
-    UIImageWriteToSavedPhotosAlbum(resultingImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    //UIImageWriteToSavedPhotosAlbum(resultingImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     
     
-    //SHKItem *item = [SHKItem image:resultingImage title:@"Our Love Contract"];
-	//SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    SHKItem *item = [SHKItem image:resultingImage title:@"Our Love Contract"];
+	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
 	
-	//[actionSheet showFromToolbar:self.navigationController.toolbar];
+	[actionSheet showFromToolbar:self.navigationController.toolbar];
 }
 - (void) image:(UIImage*)image didFinishSavingWithError:(NSError *)error contextInfo:(NSDictionary*)info{
     
