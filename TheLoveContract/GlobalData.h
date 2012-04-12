@@ -16,6 +16,8 @@
     UIImage *sticker;
     int currentPhotoTag;
     int fromEffectsTag;
+    UIImage *photo1;
+    UIImage *photo2;
     
 }
 
@@ -25,6 +27,8 @@
 @property (nonatomic, retain) UIImage *sticker;
 @property (nonatomic) int currentPhotoTag;
 @property (nonatomic) int fromEffectsTag;
+@property (nonatomic, retain) UIImage *photo1;
+@property (nonatomic, retain) UIImage *photo2;
 + (GlobalData*)sharedGlobalData;
 
 @end

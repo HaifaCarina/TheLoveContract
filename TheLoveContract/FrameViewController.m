@@ -294,10 +294,11 @@
             break;
     }
     
-    
-    
-    photoView1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"1.jpg"]];
-    photoView1.frame = CGRectMake(0, 0, photoView1.image.size.width, photoView1.image.size.height);
+    photoView1 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, scrollviewRect1.size.width,scrollviewRect1.size.height)];
+    if ([GlobalData sharedGlobalData].photo1 != nil) {
+        photoView1.image = [GlobalData sharedGlobalData].photo1;
+    }
+    photoView1.backgroundColor = [UIColor redColor];
     
     contentView1 = [[UIView alloc]init];
     [contentView1 addSubview:photoView1];
@@ -311,7 +312,7 @@
     scrollview1.contentSize = photoView1.frame.size;
     scrollview1.delegate = self;
     scrollview1.maximumZoomScale = 50;
-    scrollview1.minimumZoomScale = .5;
+    scrollview1.minimumZoomScale = .2;
     scrollview1.tag = 1;
     
     [scrollview1 addGestureRecognizer:singleTap1]; 
@@ -319,9 +320,16 @@
     [scrollview1 addSubview:contentView1];
     [self.view addSubview:scrollview1];
     
-    photoView2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"patrickstar.png"]];
-    photoView2.frame = CGRectMake(0, 0, photoView2.image.size.width, photoView2.image.size.height);
     
+    
+    photoView2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, scrollviewRect2.size.width,scrollviewRect2.size.height)];
+    
+    if ([GlobalData sharedGlobalData].photo2 != nil) {
+        photoView2.image = [GlobalData sharedGlobalData].photo2;
+    }
+    
+    photoView2.backgroundColor = [UIColor redColor];
+    NSLog(@"scrollviewrect2 %f,%f", scrollviewRect2.size.width,scrollviewRect2.size.height);
     contentView2 = [[UIView alloc]init];
     [contentView2 addSubview:photoView2];
     
@@ -331,7 +339,7 @@
     scrollview2.contentSize = photoView2.frame.size;
     scrollview2.delegate = self;
     scrollview2.maximumZoomScale = 50;
-    scrollview2.minimumZoomScale = .5;
+    scrollview2.minimumZoomScale = .2;
     scrollview2.tag = 2;
     
     [scrollview2 addGestureRecognizer:singleTap2]; 
@@ -356,10 +364,17 @@
     switch (self.currentPhotoTag) {
         case 1: {
             photoView1.image = img;
+            photoView1.frame = CGRectMake(0, 0, img.size.width, img.size.height);
+            [GlobalData sharedGlobalData].photo1 = img;
             break;
         }
         case 2:
+            //[photoView2 removeFromSuperview];
             photoView2.image = img;
+            photoView2.frame = CGRectMake(0, 0, img.size.width, img.size.height);
+            photoView2.backgroundColor = [UIColor blueColor];
+            [GlobalData sharedGlobalData].photo2 = img;
+            //[contentView2 addSubview:photoView2];
             break;
             
         default:
