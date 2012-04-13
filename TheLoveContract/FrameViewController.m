@@ -150,7 +150,8 @@
     templateView.image = resultingImage;
     
     //UIImageWriteToSavedPhotosAlbum(resultingImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    
+    [SHK setFavorites:[NSArray arrayWithObjects:@"SHKTwitter",@"SHKFacebook",nil] forType:SHKShareTypeImage];
+    [[SHK currentHelper] setRootViewController:self];
     
     SHKItem *item = [SHKItem image:resultingImage title:@"Our Love Contract"];
 	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
